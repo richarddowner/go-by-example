@@ -1,3 +1,12 @@
+/*
+Slices are a data type in Go, giving a more powerful
+interface to sequences than arrays.
+
+Slices are typed only by the elements they contain.
+
+To create an empty slice with non-zero length, use
+the bultin `make`
+*/
 package main
 
 import "fmt"
