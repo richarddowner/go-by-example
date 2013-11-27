@@ -13,6 +13,17 @@ func main() {
 
 	fmt.Println("len:", len(a)) // len: 5
 
+	a[0] = 0
+	a[1] = 1
+	a[2] = 2
+	a[3] = 3
+	a[4] = 4
+
+	fmt.Println("sub:", a[0:5]) // sub: [0 1 2 3 4]
+	fmt.Println("sub:", a[0:]) // sub: [0 1 2 3 4]
+	fmt.Println("sub:", a[:5]) // sub: [0 1 2 3 4]
+	fmt.Println("sub:", a[2:5]) // sub: [2 3 4] ~ inclusive:non-inclusive
+
 	b := [5]int{1,2,3,4,5}
 	fmt.Println("dcl:", b) // dcl: [1 2 3 4 5]
 
