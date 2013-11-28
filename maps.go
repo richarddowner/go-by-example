@@ -19,7 +19,7 @@ func main() {
 	fmt.Println("map:", m) // map: map[k1:7 k2:13]
 
 	v1 := m["k1"]
-	fmt.Println("v1: ", v1) // v1: 7
+	fmt.Println("v1: ", v1)     // v1: 7
 	fmt.Println("len:", len(m)) // len: 2
 
 	delete(m, "k2")
