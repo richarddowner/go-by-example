@@ -20,7 +20,7 @@ func main() {
 	s[1] = "b"
 	s[2] = "c"
 
-	fmt.Println("set:", s) // set: [a b c]
+	fmt.Println("set:", s)    // set: [a b c]
 	fmt.Println("get:", s[2]) // get: c
 
 	fmt.Println("len:", len(s)) // len: 3
@@ -30,10 +30,10 @@ func main() {
 	fmt.Println("apd:", s) // apd: [a b c d e f]
 
 	c := make([]string, len(s))
-	copy(c,s) // copy into c the contents of s
+	copy(c, s)             // copy into c the contents of s
 	fmt.Println("cpy:", c) // cpy: [a b c d e f]
 
-	l := s[2:5] // [inclusive:non-inclusive]
+	l := s[2:5]            // [inclusive:non-inclusive]
 	fmt.Println("sl1:", l) // sl1: [c d e]
 
 	l = s[:5]
@@ -42,14 +42,14 @@ func main() {
 	l = s[2:]
 	fmt.Println("sl3:", l) // sl3: [c d e f]
 
-	t := []string{"g","h","i"}
+	t := []string{"g", "h", "i"}
 	fmt.Println("dcl:", t) // dcl: [g h i]
 
 	twoD := make([][]int, 3)
 	for i := 0; i < 3; i++ {
 		innerLen := i + 1
 		twoD[i] = make([]int, innerLen)
-		for j:= 0; j < innerLen; j++ {
+		for j := 0; j < innerLen; j++ {
 			twoD[i][j] = i + j
 		}
 	}

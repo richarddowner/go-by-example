@@ -30,4 +30,4 @@ func main() {
 	default:
 		fmt.Println("it's after noon")
 	}
-} 
+}
