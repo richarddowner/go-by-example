@@ -1,3 +1,9 @@
+/*
+Range iterates over elements in a variety
+of data structures
+
+Arrays and slices work the same
+*/
 package main
 
 import "fmt"
