@@ -5,20 +5,20 @@ import (
 	"fmt"
 )
 
-func f1(arg int) (int, error) {
+func f1(arg int) (int, error) { // errors always the last return type
 	if arg == 42 {
 		return -1, errors.New("can't work with 42")
 	}
 
-	return arg + 3, nil
+	return arg + 3, nil // nil value indicates no error
 }
 
-type argError struct {
+type argError struct { // can implement custom errors...
 	arg  int
 	prob string
 }
 
-func (e *argError) Error() string {
+func (e *argError) Error() string { // ... by implementing the Error() method on them (to satisfy the error interface)
 	return fmt.Sprintf("%d - %s", e.arg, e.prob)
 }
 
@@ -32,7 +32,7 @@ func f2(arg int) (int, error) {
 func main() {
 
 	for _, i := range []int{7, 42} {
-		if r, e := f1(i); e != nil {
+		if r, e := f1(i); e != nil { // inline error check
 			fmt.Println("f1 failed:", e)
 		} else {
 			fmt.Println("f1 worked:", r)
@@ -47,6 +47,9 @@ func main() {
 		}
 	}
 
+	// if you want to use the data in a custom error,
+	// you'll need to get the error as an instance
+	// of the custom error type via type assertion.
 	_, e := f2(42)
 	if ae, ok := e.(*argError); ok {
 		fmt.Println(ae.arg)
