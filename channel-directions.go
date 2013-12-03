@@ -4,6 +4,9 @@ you can specify if a channel is meant to only
 send or receive values.
 
 Increases the type-safety of the program.
+
+sends: 	  chan<-
+receives: <-chan
 */
 package main
 
