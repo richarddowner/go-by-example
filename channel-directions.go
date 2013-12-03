@@ -5,8 +5,8 @@ send or receive values.
 
 Increases the type-safety of the program.
 
-sends:		chan<-
-receives:	<-chan
+sends:    chan<-
+receives: <-chan
 */
 package main
 
