@@ -1,3 +1,7 @@
+/*
+Select lets you wait on multiple channel
+operations.
+*/
 package main
 
 import (
