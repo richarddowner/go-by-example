@@ -1,3 +1,8 @@
+/*
+Closing a channel indicates that no more values
+will be sent on it. This can be useful to communicate
+completion to the channels receivers.
+*/
 package main
 
 import (
