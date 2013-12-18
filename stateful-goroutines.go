@@ -1,5 +1,13 @@
 /*
 This channel-based approach
+
+In this example our state will be owned by a single
+goroutine. This will guarantee that the data is never
+corrupted with concurrent access. In order to read or write
+that state, other goroutines will send messages to the owning
+goroutine and receive corresponding replies. These readOp
+and writeOp structs encapsulate those requests and a way
+for the owning goroutine to respond.
 */
 package main
 
@@ -27,6 +35,16 @@ func main() {
 	reads := make(chan *readOp)
 	writes := make(chan *writeOp)
 
+	// Here is the goroutine that owns the state, which is a map
+	// as in the previous example but now private to the stateful
+	// goroutine.
+	//
+	// This goroutine repeatedly selects on the reads and writes
+	// channels, responding to requests as they arrive.
+	//
+	// A response is executed by first performing the requested
+	// operation and then sending a value on the response channel
+	// resp to indicate success.
 	go func() {
 		var state = make(map[int]int)
 		for {
@@ -40,6 +58,11 @@ func main() {
 		}
 	}()
 
+	// Starts 100 goroutines to issue reads to the state-
+	// owning goroutine via the reads channel. Each read
+	// requires constucting a readOp, sending it over the
+	// reads channel, and the receiving the result over the
+	// provided resp channel
 	for r := 0; r < 100; r++ {
 		go func() {
 			for {
