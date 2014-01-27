@@ -1,3 +1,7 @@
+/*
+Sometimes we want to sort a collection by something
+other than its natural order
+*/
 package main
 
 import (
